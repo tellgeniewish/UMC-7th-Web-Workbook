@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>align.html</title>
+        <style>
+            body {
+                background-color: pink;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: lightcyan;
+                color: black;
+                box-sizing: border-box;
+                /* position: relative; */
+
+                /* text-align:center;
+                margin: auto;
+
+                display: flex;
+                justify-content: center; 가로 가운데 정렬
+                align-items: center; 세로 가운데 정렬 */
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            h1 {
+                /* position: relative; 
+                bottom: 105px;
+                left: 50px; */
+                text-align:left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">BOX</div>
+        <h1>안녕하세요</h1>
+    </body>
+</html>

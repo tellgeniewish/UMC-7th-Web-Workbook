@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>mission02.html</title>
+        <style>
+            div {
+                display: flex;
+                align-items: center;  /* 세로 중앙 정렬 */
+                justify-content: center;  /* 가로 중앙 정렬 */
+                width: 100%;
+                height: 100%;
+            }
+            .container {
+                width:300px;
+                height: 400px;
+                text-align: center;
+
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: 1fr 3fr 3fr 1fr;
+                grid-template-areas:
+                "header menu menu menu"
+                "hero hero hero hero"
+                "main main . side"
+                "banner banner banner banner";
+            }
+            .header {
+                background-color: #0F1629;
+                color: white;
+                grid-area: header;
+            }
+            .menu {
+                background-color: #ED3D4F;
+                color: white;
+                grid-area: menu;
+            }
+            .hero {
+                background-color: #4C86C4;
+                color: white;
+                grid-area: hero;
+            }  
+            .main {
+                background-color: #24344B;
+                color:white;
+                grid-area: main;
+            }
+            .side {
+                display: flex;
+                flex-direction: column;  /* 세로로 나열 */
+                height: 100%;
+                grid-area: side;
+            }          
+            .image {
+                height: 50%;
+                background-color: #C2E4E6;
+                grid-area: image;
+            }
+            .extra {
+                height: 50%;
+                background-color: #4EBC97;
+                grid-area: extra;
+            }
+            .banner {
+                background-color: #FFD16B;
+                grid-area: banner;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">HEADER</div>
+            <div class="menu">MENU</div>
+            <div class="hero">HERO</div>
+            <div class="main">MAIN</div>
+            <div class="side">
+                <div class="image">IMAGE</div>
+                <div class="extra">EXTRA</div>
+            </div>
+            <div class="banner">BANNER</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>flex.html</title>
+        <style>
+            body {
+                background-color: aquamarine;
+            }
+            .container {
+                height: 100px;
+                background-color: beige;
+                display: flex;
+                
+                /* justify-content: flex-start; */
+                /* justify-content: flex-end; */
+                /* justify-content: center; */
+                /* justify-content: space-between; */
+                /* justify-content: space-around; */
+                justify-content: space-evenly;
+                
+                align-items:center;
+            }
+            .item {         
+                background-color: pink;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">a</div>
+            <div class="item">b</div>
+            <div class="item">c</div>
+        </div>
+    </body>
+</html>

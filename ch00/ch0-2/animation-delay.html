@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>animation-delay.html</title>
+        <style>
+            body {
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .circle {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                background-color: pink;
+                color: black;
+                transition-property: background-color;
+
+                border-radius: 50%;
+                /* animation-iteration-count: infinite;
+                animation-timing-function: ease; */
+            }
+            .t3:hover {
+                background-color: lightsalmon;
+                animation-name: bounce;
+                animation-duration: 3s;
+                animation-delay: 5s;
+            }
+            .t7:hover {
+                background-color: greenyellow;
+                animation-name: bounce;
+                animation-duration: 7s;
+                animation-delay: 2s;
+                /* animation-iteration-count: infinite; */
+            }
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0); /* 원래 위치 */
+                    /* background-color: green; */
+                }
+                40% {
+                    transform: translateY(-30px); /* 위로 튕기는 위치 */
+                    /* background-color: black; */
+                }
+                60% {
+                    transform: translateY(-15px); /* 다시 아래로 오는 위치 */
+                    /* background-color: aqua; */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle t3"></div>
+        <div class="circle t7"></div>
+    </body>
+</html>

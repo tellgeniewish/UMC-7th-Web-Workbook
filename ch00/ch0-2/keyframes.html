@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>keyframes.html</title>
+        <style>
+            body {
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                height: 100vh;
+            }
+            .circle {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+                border-radius: 50%;
+
+                position: relative;
+                animation-name: bounce;
+                animation-duration: 3s;
+            }
+            @keyframes bounce {
+                from,to   {top: 0;}
+                50% {top: -300px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle"></div>
+    </body>
+</html>

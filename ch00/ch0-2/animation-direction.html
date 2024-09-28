@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>animation-direction.html</title>
+        <style>
+            body {
+                display: block;
+                justify-content:center;
+                align-items: center;
+                height: 100vh;
+            }
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+
+                position: relative;
+                animation-name: bounce;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+            }
+            /* 애니메이션 정방향 */
+            .normal {
+                background-color: pink;
+                animation-direction: normal;
+            }
+
+            /* 애니메이션 역방향 */
+            .reverse {
+                background-color: aqua;
+                animation-direction: reverse;
+            }
+
+            /* 애니메이션 양방향 (정방향 → 역방향 반복) */
+            .alternate {
+                background-color: black;
+                animation-direction: alternate;
+            }
+
+            /* 애니메이션 양방향 (역방향 → 정방향 반복) */
+            .alternate-reverse {
+                background-color: darkorange;
+                animation-direction: alternate-reverse;
+            }
+            @keyframes bounce {
+                0%   {left: 0; top: 0;}
+                25%  {left: calc(70% - 100px); top: 0;}
+                50%  {left: calc(70% - 100px); top: calc(70% - 100px);}
+                75%  {left: 0; top: calc(70% - 100px);}
+                100% {left: 0; top: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="circle normal"></div> -->
+        <!-- <div class="circle reverse"></div> -->
+        <div class="circle alternate"></div>
+        <!-- <div class="circle alternate-reverse"></div> -->
+    </body>
+</html>

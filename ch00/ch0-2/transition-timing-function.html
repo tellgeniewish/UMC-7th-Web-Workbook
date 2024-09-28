@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>transition-timing-function.html</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+                color: black;
+
+                transition-property: width, background-color;
+                transition-duration: 5s;
+                transition-timing-function: ease-out;
+            }
+            .box:hover {
+                width: 200px;
+                background-color:cyan;
+            }
+            h1 {
+                background-color: lemonchiffon;
+                text-align: center;
+                transition-duration: 1s, 2s;
+                transition-timing-function:ease-in;
+            }
+            h1:hover {
+                width: 100px;
+                background-color:lawngreen;
+            }
+            div {
+                width: 100px;
+                height: 50px;
+                background-color: red;
+                color: white;
+                margin-bottom: 10px;
+
+                transition-property: width;
+                transition-duration: 3s;
+            }
+            div:hover {
+                width: 300px;
+            }
+            div:nth-child(2) {
+                transition-timing-function: linear;
+            }
+            div:nth-child(3) {
+                transition-timing-function: ease-in;
+            }
+            div:nth-child(4) {
+                transition-timing-function: ease-out;
+            }
+            div:nth-child(5) {
+                transition-timing-function: ease-in-out;
+            }
+            div:nth-child(6) {
+                transition-timing-function: ease;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">BOX</div>
+        <h1>안녕하세요</h1>
+        <div>ease</div>
+        <div>linear</div>
+        <div>ease-in</div>
+        <div>ease-out</div>
+        <div>ease-in-out</div>
+    </body>
+</html>

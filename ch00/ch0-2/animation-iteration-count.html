@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>animation-iteration-count.html</title>
+        <style>
+            body {
+                display: block;
+                justify-content:center;
+                align-items: center;
+                height: 100vh;
+            }
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+
+                position: relative;
+                animation-name: bounce;
+                animation-duration: 3s;
+            }
+            .c0 {
+                background-color: pink;
+                animation-iteration-count: 0;
+            }
+            .c1 {
+                background-color: aqua;
+                animation-iteration-count: 1;
+            }
+            .c1dot5 {
+                background-color: black;
+                animation-iteration-count: 1.5;
+            }
+            .c2 {
+                background-color: darkorange;
+                animation-iteration-count: 2;
+            }
+            @keyframes bounce {
+                0%   {left: 0;}
+                /* 50% {left: calc(70% - 100px);} */
+                100% {left: 500px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle c0"></div>
+        <div class="circle c1"></div>
+        <div class="circle c1dot5"></div>
+        <div class="circle c2"></div>
+    </body>
+</html>
