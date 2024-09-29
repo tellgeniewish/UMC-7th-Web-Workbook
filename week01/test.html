@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력값 기록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>입력값 기록하기</h1>
+    <input type="text" id="userInput" placeholder="값을 입력하세요">
+    <button onclick="recordInput()">기록하기</button>
+    <div id="output"></div>
+
+    <script>
+        function recordInput() {
+            // 입력 필드의 값 가져오기
+            const inputValue = document.getElementById("userInput").value;
+
+            // 값을 기록할 div 선택
+            const outputDiv = document.getElementById("output");
+
+            // 입력값을 div에 추가
+            if (inputValue.trim()) { // 값이 비어있지 않을 경우에만 추가
+                outputDiv.innerHTML += `<p>${inputValue}</p>`;
+            }
+
+            // 입력 필드 초기화
+            document.getElementById("userInput").value = '';
+        }
+
+        // 엔터 키 입력을 감지하는 함수
+        document.getElementById("userInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") { // 엔터 키가 눌렸을 때
+                event.preventDefault(); // 기본 엔터 동작 방지 (예: 폼 제출)
+                recordInput(); // 입력값 기록 함수 호출
+            }
+        });
+    </script>
+</body>
+</html>
