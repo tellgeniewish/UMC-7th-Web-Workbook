@@ -8,7 +8,8 @@ function addTask() {
       const finishBtn = document.createElement('button');
       finishBtn.textContent = '완료';
       finishBtn.onclick = function () {
-        completeTask(li, input.value);
+        moveToDone(li);
+        //completeTask(li, input.value);
       };
       li.appendChild(finishBtn);
       todo.appendChild(li);
@@ -16,20 +17,34 @@ function addTask() {
     }
 }
   
-function completeTask(item, task) {
-    const finish = document.getElementById('finish');
-    const li = document.createElement('li');
-    li.textContent = task;
+function moveToDone(taskItem) {
+  const doneList = document.getElementById('finish');
+  taskItem.removeChild(taskItem.querySelector('button'));
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = '삭제';
-    deleteBtn.onclick = function () {
-      li.remove();
-    };
-    li.appendChild(deleteBtn);
-    finish.appendChild(li);
-    item.remove();
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = '삭제';
+  deleteButton.addEventListener('click', function () {
+      taskItem.remove();
+  });
+
+  taskItem.appendChild(deleteButton);
+  doneList.appendChild(taskItem); // 'finish' 대신 'doneList' 사용
 }
+// function completeTask(item, task) {
+//     const finish = document.getElementById('finish');
+//     const li = document.createElement('li');
+//     li.textContent = task;
+
+//     const deleteBtn = document.createElement('button');
+//     deleteBtn.textContent = '삭제';
+//     deleteBtn.onclick = function () {
+//       li.remove();
+//     };
+    
+//     li.appendChild(deleteBtn);
+//     finish.appendChild(li);
+//     item.remove();
+// }
 
 // 엔터 키 입력을 감지하는 함수
 document.getElementById("userInput").addEventListener("keydown", function(event) {

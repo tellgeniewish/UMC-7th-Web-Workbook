@@ -1,0 +1,66 @@
+body {
+    background-color: #ECF0F6;
+    /* margin: auto; */
+    text-align: center;
+}
+h1 {
+    padding: 30px;
+}
+hr {
+    border: none;
+    width: 80%;
+    height: 2px;
+    background-color: #D3DDEA;
+    margin: 10px auto;
+}
+input {
+    width: 60%;
+    height: 30px;
+    padding: 5px;
+}
+input::placeholder {
+    color: #E2E6EF;
+    font-style: oblique;
+    padding: 5px;
+}
+.container {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+h4 {
+    /* border-bottom: 2px solid #D3DDEA; */
+    margin-bottom: 50px;
+    border-bottom: 2px solid #D3DDEA;
+    display: inline-block;
+    padding-bottom: 5px; /* 밑줄과 텍스트 사이 간격 */
+    width: auto; /* 텍스트 길이에 맞춰 자동 조정 */
+}
+/* .underline {
+    border-bottom: 2px solid #D3DDEA;
+    display: inline-block;
+    padding-bottom: 5px;
+    width: auto;
+} */
+.todoLst, .doneList {
+    width:50%;
+}
+#todo, #finish {
+    box-sizing: border-box;
+}
+li {
+    border-bottom: 2px solid #D3DDEA;
+    display: flex;
+    justify-content: space-between;
+    list-style-type:none;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+button {
+    background-color: #D3DDEA;
+    border: none;
+    color: black;
+    margin-left: 10px;
+}
