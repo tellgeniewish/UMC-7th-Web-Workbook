@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After 예제</title>
+    <style>
+        .example {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        .example::after {
+            content: '추가된 텍스트';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="example">기본 콘텐츠</div>
+</body>
+</html>
