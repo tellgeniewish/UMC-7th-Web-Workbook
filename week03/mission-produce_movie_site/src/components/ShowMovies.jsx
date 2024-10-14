@@ -43,7 +43,8 @@ const MovieContainer = styled.div`
 
 const MovieStyle = styled.div`
     position: relative;
-    flex: 0 0 calc(10% - 10px);
+    flex-wrap: wrap;
+    width: 160px;    
   
     border-radius: 10px;
     overflow: hidden;

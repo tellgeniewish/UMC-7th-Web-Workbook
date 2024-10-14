@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <NavBarContainer>
       <NavLeft>
-        <Link to="/">YONGCHA</Link>
+        <Link to="/">JINCHA</Link>
       </NavLeft>
       <NavRight>
         <Link to="/login">로그인</Link>
