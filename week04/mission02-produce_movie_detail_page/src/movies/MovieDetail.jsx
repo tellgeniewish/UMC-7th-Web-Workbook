@@ -76,7 +76,7 @@ const CastList = ({ crew = [], cast = [] }) => {
 export default MovieDetails;
 
 const MovieDetailContainer = styled.div`
-    height: 100vh;
+    // height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -85,8 +85,8 @@ const MovieDetailContainer = styled.div`
 `;
 
 const PosterContainer = styled.div`
-    height: 50%;
-    // width: 100%;
+    // height: 50%;
+    width: 100%;
     position: relative;
     overflow: hidden; /* 포스터 영역을 넘지 않도록 설정 */
     border-radius: 10px;
@@ -140,7 +140,7 @@ const DetailInfoContent = styled.div`
 `;
 
 const CastInfo = styled.div`
-    height: 50%;
+    // height: 50%;
     color: white;
     display: flex;
     flex-wrap: wrap;
