@@ -22,11 +22,11 @@ const MovieDetails = () => {
 
     return (
         <MovieDetailContainer>
-            <PosterContainer>         
-                <img 
+            <PosterContainer backdrop={movie.backdrop_path}>         
+                {/* <img 
                     src={`${imageBaseUrl}${posterSize}${movie.poster_path}`} 
                     alt={movie.original_title} 
-                />
+                /> */}
                 <DetailInfoContent>
                     <h1>{movie.title}</h1>
                     평균: {movie.vote_average}<br/>
@@ -59,16 +59,14 @@ const CastList = ({ crew = [], cast = [] }) => {
         <CastContainer>
             {combinedCrewAndCast.map((member) => (
                 <CastMember key={member.id}>
-                    {member.profile_path && (
+                    {member.profile_path ? (
                         <ProfileImage
                             src={`${imageBaseUrl}w200${member.profile_path}`}
                             alt={member.name}
                         />
-                    )}
-                    <CastInfo>
+                    ):(<PlaceholderImage/>)}
                         <strong>{member.name}</strong><br/>
                         {member.job || member.character} {/* 역할 표시: 감독 또는 출연진 역할 */}
-                    </CastInfo>
                 </CastMember>
             ))}
         </CastContainer>
@@ -78,41 +76,34 @@ const CastList = ({ crew = [], cast = [] }) => {
 export default MovieDetails;
 
 const MovieDetailContainer = styled.div`
-    min-width: 100%;
     height: 100vh;
-
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-
-    color: white;
-
-    background-color: black;
+    padding: 20px;
+    background-color: black; /* 화면 전체 배경색 설정 */
 `;
 
 const PosterContainer = styled.div`
     height: 50%;
+    // width: 100%;
     position: relative;
     overflow: hidden; /* 포스터 영역을 넘지 않도록 설정 */
     border-radius: 10px;
-    padding-right: 10px;
-    img {
-        width: 100%; /* 이미지 너비 조정 */
-        height: 100%; /* 이미지 비율 유지 */
-        
-        object-fit: cover;
-        border-radius: 10px;
-    }
+
+    background-image: url(${(props) => `https://image.tmdb.org/t/p/w500${props.backdrop}`});
+    background-size: cover;
+    background-position: center;
 `;
 
-const DetailInfoContent = styled.div`
-    height: 100%;
-    width: 50%;
 
-    position: absolute; /* 절대 위치 설정 */
-    top: 0; /* 상단에 위치 */
-    left: 0; /* 좌측에 위치 */
-    z-index: 1; /* 포스터 위에 위치 */
+const DetailInfoContent = styled.div`
+    max-width: 70%;
+
+    // position: absolute; /* 절대 위치 설정 */
+    // top: 0; /* 상단에 위치 */
+    // left: 0; /* 좌측에 위치 */
+    // z-index: 1; /* 포스터 위에 위치 */
     
     color: white;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 그라데이션 배경 */
@@ -151,21 +142,22 @@ const DetailInfoContent = styled.div`
 const CastInfo = styled.div`
     height: 50%;
     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 `;
 
 const CastContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     text-align: center;
-
-    min-height: fit-content;
     background-color: black;
 `;
 
 const CastMember = styled.div`
     display: flex;
     flex-direction: column;
+    flex: 0 0 10%; /* 한 줄에 10명씩 표시 */
     align-items: center;
     margin: 15px;
 `;
@@ -176,4 +168,11 @@ const ProfileImage = styled.img`
     border-radius: 50%;
     border: 2px solid white;
     object-fit: cover; /* 비율 유지 */
+`;
+
+const PlaceholderImage = styled.div`
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: gray;
 `;

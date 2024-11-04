@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 // 1. 만든 페이지들을 import
