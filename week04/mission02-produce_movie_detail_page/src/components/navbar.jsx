@@ -1,64 +1,63 @@
 // navbar.jsx
-import {Link} from "react-router-dom";
 import styled from 'styled-components';
-import { FaSearch } from "react-icons/fa";
-import { MdMovie } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
-    return (
-        <SidebarContainer>
-            <DivSearch>
-                <StyledFaSearch><FaSearch/></StyledFaSearch>
-                <StyledLink to='/search'>찾기</StyledLink>
-            </DivSearch>
-            <DivMovie>
-                <StyledMdMovie><MdMovie/></StyledMdMovie>
-                <StyledLink to='/movies'>영화</StyledLink>
-            </DivMovie>
-        </SidebarContainer>
-    );
+const Navbar = () => {
+  return (
+    <NavBarContainer>
+      <NavLeft>
+        <Link to="/">JINCHA</Link>
+      </NavLeft>
+      <NavRight>
+        <Link to="/login">로그인</Link>
+        <NavSign>
+            <Link to="/signup">회원가입</Link>
+        </NavSign>
+      </NavRight>
+    </NavBarContainer>
+  );
 };
 
-export default Sidebar;
+export default Navbar;
 
-const SidebarContainer = styled.div`
-  // height: 100%;
-  // height: calc(100% - 60px); // Navbar 높이를 뺀 높이
-  // position: fixed;
-  // z-index: 1000;
-  // top: 60px;
-  // left:0;
+const NavBarContainer = styled.div`
+  height: 60px;
   background-color: #131517;
-  min-width: 150px;
-`;
-
-// 스타일링된 아이콘 컴포넌트 생성
-const StyledFaSearch = styled(FaSearch)`
-  margin-right: 8px;  /* 아이콘과 텍스트 사이의 간격 */
-`;
-
-const StyledMdMovie = styled(MdMovie)`
-  margin-right: 8px;  /* 아이콘과 텍스트 사이의 간격 */
-`;
-
-const DivSearch = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-`;
-
-const DivMovie = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-`;
-
-// Link 컴포넌트를 스타일링
-const StyledLink = styled(Link)`
-  color: white;         /* 텍스트 색상 흰색으로 설정 */
-  text-decoration: none; /* 기본 밑줄 제거 */
+  padding: 7px;
   
-  &:hover {
-    color: #646cffaa;   /* 마우스 오버 시 색상 변경 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const NavLeft = styled.div`
+  background-color: #131517;
+  color: deeppink;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `;
+
+const NavRight = styled.div`
+  display: flex;
+  align-items: center;
+  a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    &:hover {
+      color: #646cffaa;
+    }
+  }
+`;
+
+const NavSign = styled.button`
+    background-color: deeppink;
+    width: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
+`
