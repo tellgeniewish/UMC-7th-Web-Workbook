@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import nowPlayingImage from '../assets/image/now-playing.png';
+import popularImage from '../assets/image/popular.png';
+import topRatedImage from '../assets/image/top-rated.png';
+import upComingImage from '../assets/image/up-coming.png';
 
 const MoviesPage = () => {
     return (
         <>
             <h2>카테고리</h2>
             <MovieRootLayout>
-                <MovieContent><Link to="/now-playing"><img src="/image/now-playing.png" alt='now-playing'/></Link></MovieContent>
-                <MovieContent><Link to="/popular"><img src="/image/popular.png" alt='popular'/></Link></MovieContent>
-                <MovieContent><Link to="/top-rated"><img src="/image/top-rated.png" alt='top-rated'/></Link></MovieContent>
-                <MovieContent><Link to="/up-coming"><img src="/image/up-coming.png" alt='up-coming'/></Link></MovieContent>
+                <MovieContent><Link to="/now-playing"><img src={nowPlayingImage} alt='now-playing'/></Link></MovieContent>
+                <MovieContent><Link to="/popular"><img src={popularImage} alt='popular'/></Link></MovieContent>
+                <MovieContent><Link to="/top-rated"><img src={topRatedImage} alt='top-rated'/></Link></MovieContent>
+                <MovieContent><Link to="/up-coming"><img src={upComingImage} alt='up-coming'/></Link></MovieContent>
             </MovieRootLayout>
         </>        
     );
