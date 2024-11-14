@@ -1,13 +1,15 @@
+// src/pages/login.jsx
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import styled from "styled-components";
+import useServerFetch from "../hooks/useServerFetch";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from 'react';
 
 const LoginPage = () => {
-    // const schema = yup.object().shape({
-    //     email: yup.string().email().required(),
-    //     password: yup.string().min(8).max(16).required(),
-    // })
     const schema = yup.object().shape({
         email: yup.string().email('올바른 이메일 형식이 아닙니다. 다시 확인해주세요!').required(),
         password: yup.string().min(8, '비밀번호는 8~16자 사이로 입력해주세요!').max(16, '비밀번호는 8~16자 사이로 입력해주세요!').required(),
@@ -18,14 +20,39 @@ const LoginPage = () => {
         mode: 'onChange', // 실시간 검증을 위해 'onChange'로 설정
     });
 
-    const onSubmit = (data) => {
-        console.log('폼 데이터 제출')
-        console.log(data);
+    const { handleLogin } = useContext(AuthContext);
+    console.log("handleLogin=", handleLogin);
+
+    const navigate = useNavigate();
+    const onSubmit = async(data) => {
+        console.log('login 폼 데이터 제출')        
+        console.log("data=", data);
+        try {
+            const response = await axios.post('http://localhost:3000/auth/login', data);
+            const { accessToken, refreshToken } = response.data;
+
+            // 사용자 정보와 토큰을 localStorage에 저장
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
+
+            const userData = { email: data.email };
+            //localStorage.setItem('user', JSON.stringify(userData));
+
+            handleLogin(userData); // 로그인 후 AuthContext에 로그인 상태 저장
+            //handleLogin(accessToken, refreshToken);
+
+            navigate('/');
+        } catch (error) {
+            if (error.response) {
+                console.error('로그인 실패:', error.response.data);
+            } else {
+                console.error('네트워크 오류:', error.message);
+            }
+        }
     }
 
     return (
         <LoginWrapper>
-            {/* <h2>로그인 페이지</h2> */}
             <h2>로그인</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <LoginInput type={'email'} {...register("email")} onBlur={() => trigger("email")}/>

@@ -1,3 +1,4 @@
+// src/pages/up-coming.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ShowMovies from "../components/ShowMovies";
@@ -15,24 +16,7 @@ const UpComingPage = () => {
         return <div><h1 style={{color:'white'}}>upcoming 에러 발생</h1></div>
     }
 
-    // const [movies, setMovies] = useState([]);
-    
-    // useEffect(() => {
-    //     const getMovies = async () => {
-    //         try {
-    //             const movies = await axiosInstance.get(
-    //                 `/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_TOKEN}&language=ko-KR&page=1`
-    //             );
-    //             setMovies(movies);
-    //         } catch (error) {
-    //             console.error("Failed to fetch movies:", error);
-    //         }
-    //     };
-    //     getMovies();
-    // }, []);
-
     return (
-        // <ShowMovies movies={movies}/>
         <ShowMovies movies={movies?.results}/>
     );
 };

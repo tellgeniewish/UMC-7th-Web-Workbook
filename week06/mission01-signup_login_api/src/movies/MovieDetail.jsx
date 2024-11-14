@@ -1,3 +1,4 @@
+// src/movies/MovieDetail.jsx
 import { useParams } from 'react-router-dom';
 import useCustomFetch from "../hooks/useCustomFetch";
 import styled from "styled-components";

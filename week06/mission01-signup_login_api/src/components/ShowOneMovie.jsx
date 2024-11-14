@@ -1,3 +1,4 @@
+// src/components/ShowOneMovie.jsx
 import styled from "styled-components";
 
 const ShowOneMovie = ({ movie, imageBaseUrl, posterSize }) => {

@@ -20,6 +20,8 @@ import MovieDetails from "./movies/MovieDetail.jsx";
 
 import RootLayout from "./layout/root-layout.jsx";
 
+import { AuthProvider } from './context/AuthContext';
+
 const router = createBrowserRouter([
   {
       path: '/',
@@ -32,10 +34,7 @@ const router = createBrowserRouter([
             index: true,
             element: <HomePage/>
         },
-        {
-          path: 'search',
-          element: <Search/>
-        },
+        { path: 'search', element: <Search/> },
         {
             // 3. 부모의 path가 '/'이니, /를 붙이지 않아도 /movies랑 동일하게 동작한다.
             path: 'movies',
@@ -43,34 +42,13 @@ const router = createBrowserRouter([
             //path: 'movies:movieId',
             element: <Movies/>
         },
-        {
-          path: 'login',
-          element: <Login/>
-        },
-        {
-          path: 'signup',
-          element: <SignUp/>
-        },
-        {
-          path: 'now-playing',
-          element: <NowPlaying/>
-        },
-        {
-          path: 'popular',
-          element: <Popular/>
-        },
-        {
-          path: 'top-rated',
-          element: <TopRated/>
-        },
-        {
-          path: 'up-coming',
-          element: <UpComing/>
-        },
-        {
-          path: 'movies/:movieId',
-          element: <MovieDetails/>
-        }
+        { path: 'login', element: <Login/> },
+        { path: 'signup', element: <SignUp/> },
+        { path: 'now-playing', element: <NowPlaying/> },
+        { path: 'popular', element: <Popular/> },
+        { path: 'top-rated', element: <TopRated/> },
+        { path: 'up-coming', element: <UpComing/> },
+        { path: 'movies/:movieId', element: <MovieDetails/> }
     ]
   },
 ])

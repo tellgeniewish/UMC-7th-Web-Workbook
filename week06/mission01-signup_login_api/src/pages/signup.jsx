@@ -1,13 +1,17 @@
+// src/pages/signup.jsx
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import styled from "styled-components";
+//import { MovieContext } from '../context/AuthContext';
+import { useContext } from 'react';
+import useServerFetch from "../hooks/useServerFetch";
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { serverApi } from '../apis/server-api';
+import axios from "axios";
 
 const SignUpPage = () => {
-    // const schema = yup.object().shape({
-    //     email: yup.string().email().required(),
-    //     password: yup.string().min(8).max(16).required(),
-    // })
     const schema = yup.object().shape({
         email: yup.string().required('이메일을 반드시 입력해주세요.')
                             .email('올바른 이메일 형식이 아닙니다. 다시 확인해주세요!')
@@ -18,23 +22,30 @@ const SignUpPage = () => {
                                 .required('비밀번호 검증 또한 필수 입력요소입니다.').min(8).max(16, '비밀번호는 16자 이하여야 합니다.'),
     })
 
-    // const {register, handleSubmit} = useForm(); // 적용 안됨
-    // const {register, handleSubmit} = useForm({ // 에러 메시지는 안 뜬다
-    //     resolver: yupResolver(schema)
-    // });
     const {register, handleSubmit, formState: {errors, isValid}, trigger} = useForm({
         resolver: yupResolver(schema),
         mode: 'onChange', // 실시간 검증을 위해 'onChange'로 설정
     });
 
-    const onSubmit = (data) => {
-        console.log('폼 데이터 제출')
-        console.log(data);
+    const navigate = useNavigate();
+    const onSubmit = async(data) => {
+        console.log('signup 폼 데이터 제출')    
+        console.log("data=", data);
+
+        try {
+            const response = await axios.post('http://localhost:3000/auth/register', data, {
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            navigate('/login');
+        } catch (error) {
+            console.error('회원가입 오류:', error);
+            alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+        }
     }
 
     return (
         <SignUpWrapper>
-            {/* <h2>회원가입 페이지</h2> */}
             <h2>회원가입</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <SignUpInput type={'email'} placeholder='이메일을 입력해주세요!' {...register("email")} onBlur={() => trigger("email")}/>
@@ -65,7 +76,6 @@ const SignUpInput = styled.input`
     border-radius: 10px;
     font-size: 1rem;
 `;
-
 
 const LoginBtn = styled.button`
     width: 520px;

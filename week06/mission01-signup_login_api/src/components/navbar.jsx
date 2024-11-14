@@ -1,19 +1,32 @@
-// navbar.jsx
+// src/components/navbar.jsx
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const { user, handleLogout } = useContext(AuthContext);
+
+  console.log("user=", user);
   return (
     <NavBarContainer>
       <NavLeft>
         <Link to="/">JINCHA</Link>
       </NavLeft>
-      <NavRight>
-        <Link to="/login">로그인</Link>
-        <NavSign>
-            <Link to="/signup">회원가입</Link>
-        </NavSign>
-      </NavRight>
+      {user ? (
+        <NavRight>
+          <Hello>{user.email.split()[0]}님 반갑습니다.</Hello>
+          <Logout onClick={handleLogout}>로그아웃</Logout>        
+        </NavRight>
+      ) : (
+        <NavRight>
+          <Link to="/login">로그인</Link>
+          <NavSign>
+              <Link to="/signup">회원가입</Link>
+          </NavSign>
+        </NavRight>
+      )}
     </NavBarContainer>
   );
 };
@@ -61,3 +74,16 @@ const NavSign = styled.button`
     margin-left: 20px;
     margin-right: 20px;
 `
+
+const Hello = styled.div`
+    font-size: 1.2rem;
+`;
+
+const Logout = styled.button`
+  background-color: #131517;
+  color: white;
+  font-size: 1.2rem;
+
+  width: fit-content;
+  margin-right: 20px;
+`;
