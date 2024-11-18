@@ -141,7 +141,7 @@ const PaginationContainer = styled.div`
 const PageBtn = styled.button`
     width: 80px;
     height: 50px;
-    background-color: deeppink;
+    background-color: ${({ disabled }) => (disabled ? '#ccc' : 'deeppink')};
     color: white;
 `
 
