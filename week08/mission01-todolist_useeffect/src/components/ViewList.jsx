@@ -1,23 +1,37 @@
 // src/components/ViewList.jsx
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Input from './Input';
 import Button from './Button';
 import styled from 'styled-components';
 import { TodoContext } from '../context/TodoContext';
+import axios from 'axios';
 
 const ViewList = () => {
-    const {
-      todos, setTodos,
-      text, setText,
-      detail, setDetail,
-      editingId, setEditingId,
-      editText, setEditText,
-      editDetail, setEditDetail,
-      handleSubmit,
-      addTodo,
-      deleteTodo,
-      updateTodo
-    } = useContext(TodoContext)
+  const {
+    todos, setTodos,
+    text, setText,
+    detail, setDetail,
+    editingId, setEditingId,
+    editText, setEditText,
+    editDetail, setEditDetail,
+    handleSubmit,
+    addTodo,
+    deleteTodo,
+    updateTodo
+  } = useContext(TodoContext)    
+
+  // 컴포넌트가 처음 렌더링될 때 Todo 목록을 가져옵니다.
+  // useEffect(() => {
+  //   const fetchTodos = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:3000/todo');
+  //       setTodos(response.data);  // 서버에서 받은 Todo 목록을 상태에 저장
+  //     } catch (error) {
+  //       console.error('Todo 목록 조회 실패:', error);
+  //     }
+  //   };
+  //   fetchTodos();
+  // }, [setTodos]);
 
   return (
     <Value>

@@ -68,6 +68,43 @@ app.get('/user/me', (req, res) => {
   });
 });
 
+// 💖 Todos 관련 라우트 추가 💖
+// 임시로 저장할 Todos 데이터 배열
+let todos = []; // 💖 Todos 데이터 배열 추가
+
+// Todos 조회 API
+app.get('/todo', (req, res) => { // 💖
+  res.status(200).json(todos); // Todos 데이터를 JSON으로 반환
+}); // 💖
+
+// Todos 생성 API
+app.post('/todo', (req, res) => { // 💖
+  const { id, text } = req.body;
+
+  if (!id || !text) {
+    return res.status(400).json({ message: 'ID와 텍스트를 모두 입력해야 합니다.' });
+  }
+
+  // 새로운 todo 항목 추가
+  todos.push({ id, text });
+  return res.status(201).json({ message: 'Todo가 성공적으로 추가되었습니다.', todos });
+}); // 💖
+
+// Todos 삭제 API
+app.delete('/todo/:id', (req, res) => { // 💖
+  const { id } = req.params;
+
+  // ID에 해당하는 todo 항목 삭제
+  const index = todos.findIndex(todo => todo.id === parseInt(id, 10));
+
+  if (index === -1) {
+    return res.status(404).json({ message: '삭제할 Todo를 찾을 수 없습니다.' });
+  }
+
+  todos.splice(index, 1);
+  return res.status(200).json({ message: 'Todo가 성공적으로 삭제되었습니다.', todos });
+}); // 💖
+
 // 서버 실행 (3000 포트)
 app.listen(3000, () => {
   console.log('서버가 3000 포트에서 실행 중입니다.');
