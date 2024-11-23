@@ -12,7 +12,7 @@ import CardListSkeleton from "../components/Skeleton/card-list-skeleton"
 
 const PopularPage = () => {
     //const {data: movies, isLoading, isError} = useCustomFetch(`/movie/popular`);
-    const { data: movies, isLoading, isError } = useQuery({
+    const { data: movies, isPending, isError } = useQuery({
         queryKey: ['popularMovies'], // 쿼리 키: 동일한 키로 캐싱 및 재요청 관리
         queryFn: async () => {
             // queryFn: axiosInstance를 사용하여 API 호출
@@ -29,7 +29,7 @@ const PopularPage = () => {
     //     staleTime: 1000 * 10,
     // })
 
-    if (isLoading) {
+    if (isPending) {
         //return <div><h1 style={{color:'white'}}>popular 로딩 중입니다...</h1></div>
         return (
             <S.MovieGridContainer>
