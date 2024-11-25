@@ -26,7 +26,7 @@ const TodoDetail = () => {
       } = useContext(TodoContext)
       
     const { todoId } = useParams(); // URL 파라미터에서 id를 가져옵니다.
-    // const [todo, setTodo] = useState(null); // 데이터를 저장할 상태
+    const [todo, setTodo] = useState(null); // 데이터를 저장할 상태
     const [isLoading, setIsLoading] = useState(true); // 로딩 상태
     const [isError, setIsError] = useState(false); // 에러 상태
 
@@ -42,7 +42,7 @@ const TodoDetail = () => {
             try {
                 const response = await axios.get(`http://localhost:3000/todo/${todoId}`); // id를 사용하여 해당 Todo 데이터를 가져옵니다.
                 const data = response.data;
-                // setTodo(data);
+                setTodo(data);
                 setText(data.title);
                 setDetail(data.content);
                 setChecked(data.checked);
@@ -121,8 +121,8 @@ const TodoDetail = () => {
     return (
         <DetailWrapper>
         <p><strong>id: {todoId}</strong></p>
-        {/* <p><strong>첫 작성 시간:</strong> {new Date(todo.createdAt).toLocaleString()}</p>
-        <p><strong>업데이트 시간:</strong> {new Date(todo.updatedAt).toLocaleString()}</p> */}
+        <p><strong>첫 작성 시간:</strong> {new Date(todo.createdAt).toLocaleString()}</p>
+        <p><strong>업데이트 시간:</strong> {new Date(todo.updatedAt).toLocaleString()}</p>
         {editingId === todoId ? (
             <>
                 <p><strong>제목:</strong> <Input value={editText} onChange={(e) => setEditText(e.target.value)}/></p>
@@ -160,4 +160,5 @@ const DetailWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 `
