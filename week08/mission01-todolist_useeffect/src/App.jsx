@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // 1. 만든 페이지들을 import
 import HomePage from "./pages/home.jsx";
+import TodoDetail from './todos/TodoDetail';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             // path: 'todo',
             element: <HomePage/>
         },
-        // { path: 'todo/:todoId', element: <TodoDetails/> }
+        { path: 'todo/:todoId', element: <TodoDetail/> }
     ]
   },
 ])

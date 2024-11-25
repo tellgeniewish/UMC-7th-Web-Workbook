@@ -1,9 +1,9 @@
 // src/components/Button.jsx
 import styled from "styled-components";
 
-const Button = ({onClick, text}) => {
+const Button = ({onClick, text, isDisabled, type = "button"}) => {
     return (
-        <Btn className='button' onClick={onClick}>
+        <Btn className='button' onClick={onClick} disabled={isDisabled} type={type}>
             {text}
         </Btn>
     )
@@ -18,5 +18,5 @@ const Btn = styled.button`
     border-radius: 10px;
     padding: 5px 10px;
     text-align: center;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;

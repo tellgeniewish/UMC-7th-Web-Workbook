@@ -14,13 +14,21 @@ const WantToDo = () => {
     editingId, setEditingId,
     editText, setEditText,
     editDetail, setEditDetail,
+    checked, setChecked,
     handleSubmit,
     addTodo,
     deleteTodo,
     updateTodo
   } = useContext(TodoContext)
 
+  // useEffect로 todos 상태가 변경될 때마다 콘솔 로그 출력
+  // useEffect(() => {
+  //   console.log('Todos updated:', todos);  // 상태가 변경될 때마다 업데이트된 todos 로그
+  // }, [todos]);  // todos가 변경될 때마다 실행됨
+  
+
   const handleAddTodo = async () => {
+    // e.preventDefault();
     if (text.trim() === '') {
       alert('제목을 입력해주세요!');
       return;
@@ -37,19 +45,18 @@ const WantToDo = () => {
       //   setText('');
       //   setDetail('');
       // }
-      if (response.status === 200) {
-        console.log('ToDo가 성공적으로 추가되었습니다!');
-        
-        const newTodo = { //새로운 데이터 형식에 맞게 업데이트
-          id: response.data.id, // API 응답에서 id 가져오기
-          task: response.data.title, // title을 task로 매핑
-          detail: response.data.content, // content를 detail로 매핑
-        };
-        setTodos((prevTodos) => [...prevTodos, newTodo]); // 기존 todos에 추가
-        // addTodo();
-        setText('');
-        setDetail('');
-      }
+      console.log('Response:', response);
+      console.log('ToDo가 성공적으로 추가되었습니다!');
+      
+      const newTodo = { //새로운 데이터 형식에 맞게 업데이트
+        id: response.data.id, // API 응답에서 id 가져오기
+        task: response.data.title, // title을 task로 매핑
+        detail: response.data.content, // content를 detail로 매핑
+      };
+      setTodos((prevTodos) => [...prevTodos, newTodo]); // 기존 todos에 추가
+      // addTodo();
+      setText('');
+      setDetail('');
     } catch (error) {
       console.error('ToDo 추가 중 오류 발생:', error);
       alert('ToDo를 추가하는 데 실패했습니다. 다시 시도해주세요.');
@@ -57,12 +64,13 @@ const WantToDo = () => {
   };
 
   return (
-    <InputAndButtonWrapper>
-    {/* <InputAndButtonWrapper onSubmit={handleSubmit}> */}
+    <InputAndButtonWrapper onSubmit={handleSubmit}>
+    {/*<InputAndButtonWrapper> */}
         <Input value={text} onChange={(e) => setText(e.target.value)} placeholder="제목을 입력해주세요."/>
         <Input value={detail} onChange={(e) => setDetail(e.target.value)} placeholder="내용을 입력해주세요."/>
         {/* <Button onClick={() => addTodo()} text='ToDo 생성'/> */}
-        <Button onClick={handleAddTodo} text="ToDo 생성" />
+        <Button onClick={handleAddTodo} text="ToDo 생성" isDisabled={text.trim() === ''}/>
+        {/* <Button text="ToDo 생성" isDisabled={text.trim() === ''} type="submit"/> */}
     </InputAndButtonWrapper>
   )
 }

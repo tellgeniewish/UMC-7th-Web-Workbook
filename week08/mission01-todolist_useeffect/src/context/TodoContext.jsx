@@ -7,12 +7,13 @@ export const TodoContext = createContext();
 // 우산을 만듦
 export function TodoContextProvider({children}) {
     const [todos, setTodos] = useState([
-        {id: 1, task:'투두 만들어보기', detail:''},
-        {id: 2, task: '지니', detail:''}
+        {id: 1, task:'투두 만들어보기', detail:'', checked: false},
+        {id: 2, task: '지니', detail:'', checked: false}
     ]);
     //console.log(todos)
     const [text, setText] = useState('');
     const [detail, setDetail] = useState('');
+    const [checked, setChecked] = useState('');
     
     // 1. 추가하기
     const addTodo = () => {
@@ -22,7 +23,7 @@ export function TodoContextProvider({children}) {
         }
         setTodos((prev) => [
             ...prev, // 이전에 저장된 값을 받아온다
-            {id: Math.floor(Math.random() * 100) + 2, task: text, detail: detail}
+            {id: Math.floor(Math.random() * 100) + 2, task: text, detail: detail, checked: false}
         ])
         setText('');
         setDetail('');
@@ -37,10 +38,11 @@ export function TodoContextProvider({children}) {
     const [editingId, setEditingId] = useState('');
     const [editText, setEditText] = useState('');
     const [editDetail, setEditDetail] = useState('');
-    const updateTodo = (id, text, detail) => {
+    const [editChecked, setEditChecked] = useState('');
+    const updateTodo = (id, text, detail, checked) => {
         //console.log(id);
         setTodos((prev) =>
-            prev.map((item) => (id == item.id ? {...item, task:text, detail:detail}:item))
+            prev.map((item) => (id == item.id ? {...item, task:text, detail:detail, checked: checked}:item))
         );
         setEditingId('');
     };
@@ -53,9 +55,11 @@ export function TodoContextProvider({children}) {
         todos, setTodos,
         text, setText,
         detail, setDetail,
+        checked, setChecked,
         editingId, setEditingId,
         editText, setEditText,
         editDetail, setEditDetail,
+        editChecked, setEditChecked,
         handleSubmit,
         addTodo,
         deleteTodo,
