@@ -22,6 +22,8 @@ import MovieDetails from "./movies/MovieDetail.jsx";
 
 import RootLayout from "./layout/root-layout.jsx";
 
+import Party from "./pages/party.jsx"
+
 const router = createBrowserRouter([
   {
       path: '/',
@@ -48,7 +50,8 @@ const router = createBrowserRouter([
         { path: 'popular', element: <Popular/> },
         { path: 'top-rated', element: <TopRated/> },
         { path: 'up-coming', element: <UpComing/> },
-        { path: 'movies/:movieId', element: <MovieDetails/> }
+        { path: 'movies/:movieId', element: <MovieDetails/> },
+        { path: 'party', element: <Party/> },
     ]
   },
 ])

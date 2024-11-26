@@ -13,7 +13,9 @@ const Navbar = () => {
     <NavBarContainer>
       <NavLeft>
         <Link to="/">JINCHA</Link>
+        <Party><Link to="/party">파티 타임!</Link></Party>
       </NavLeft>
+      
       {user ? (
         <NavRight>
           <Hello>{user.email ? user.email.split()[0] : '이메일을 다시 확인하세요.'}님 반갑습니다.</Hello>
@@ -39,11 +41,14 @@ const NavBarContainer = styled.div`
   padding: 7px;
   
   display: flex;
+  // flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
 const NavLeft = styled.div`
+  display: flex;
+  align-items: center;
   background-color: #131517;
   color: deeppink;
   font-size: 1.5rem;
@@ -53,6 +58,16 @@ const NavLeft = styled.div`
     color: inherit;
   }
 `;
+
+const Party = styled.div`
+  margin-left: 50px;
+  // background-color: yellow;
+  color: white;
+  font-size: 1.2rem;
+  &:hover {
+      color: #646cffaa;
+  }
+`
 
 const NavRight = styled.div`
   display: flex;
@@ -71,7 +86,7 @@ const NavRight = styled.div`
 const NavSign = styled.button`
   background-color: deeppink;
   width: fit-content;
-  margin-left: 20px;
+  // margin-left: 20px;
   margin-right: 20px;
 `
 
