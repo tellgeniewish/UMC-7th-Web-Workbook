@@ -9,15 +9,15 @@ const Subscribe = () => {
 
     return (
         <SubscribeWrapper>
-        {subscribeMovies.map((movie) => (
-            <MovieCard key={movie.id} to={`/movies/${movie.id}`}>
-            <Poster 
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
-                alt={movie.title} 
-            />
-            <Title>{movie.title}</Title>
-            </MovieCard>
-        ))}
+          {subscribeMovies.map((movie) => (
+              <MovieCard key={movie.id} to={`/movies/${movie.id}`}>
+              <Poster 
+                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
+                  alt={movie.title} 
+              />
+              <Title>{movie.title}</Title>
+              </MovieCard>
+          ))}
         </SubscribeWrapper>
     )
 }

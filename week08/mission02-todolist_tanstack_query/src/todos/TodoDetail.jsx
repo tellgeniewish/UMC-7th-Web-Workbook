@@ -94,15 +94,16 @@ const TodoDetail = () => {
     const queryClient = useQueryClient();
     const handleSaveMutation = useMutation({
         mutationFn: async (updatedTodo) => {
-            await axios.patch(`http://localhost:3000/todo/${todoId}`, updatedTodo);
+            const response = await axios.patch(`http://localhost:3000/todo/${todoId}`, updatedTodo);
+            return response.data;
         },
-        onSuccess: () => {
+        onSuccess: (data) => {
             //const queryClient = useQueryClient();
             queryClient.invalidateQueries('save');
             setTodos((updatedTodos) =>
                 updatedTodos.map((todo) =>
                     // todo.id === todoId ? updatedTodo : todo
-                    todo.id === todoId ? { ...todo, task: updatedTodo.title, detail: updatedTodo.content, checked: updatedTodo.checked } : todo
+                    todo.id === todoId ? { ...todo, task: data.title, detail: data.content, checked: data.checked } : todo
                 )
             );
             setEditingId(null); // 저장 후 수정 모드 종료
