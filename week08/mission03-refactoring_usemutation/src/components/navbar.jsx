@@ -14,13 +14,15 @@ const Navbar = () => {
       <NavLeft>
         <Link to="/">JINCHA</Link>
         <Party><Link to="/party">파티 타임!</Link></Party>
-      </NavLeft>
-      
+      </NavLeft>      
       {user ? (
-        <NavRight>
-          <Hello>{user.email ? user.email.split()[0] : '이메일을 다시 확인하세요.'}님 반갑습니다.</Hello>
-          <Logout onClick={handleLogout}>로그아웃</Logout>        
-        </NavRight>
+        <>
+          <NavRight>          
+            <Subscribe><Link to="/subscribe">구독 중...</Link></Subscribe>
+            <Hello>{user.email ? user.email.split()[0] : '이메일을 다시 확인하세요.'}님 반갑습니다.</Hello>
+            <Logout onClick={handleLogout}>로그아웃</Logout>        
+          </NavRight>
+        </>
       ) : (
         <NavRight>
           <Link to="/login">로그인</Link>
@@ -65,7 +67,16 @@ const Party = styled.div`
   color: white;
   font-size: 1.2rem;
   &:hover {
-      color: #646cffaa;
+    color: #646cffaa;
+  }
+`
+
+const Subscribe = styled.div`
+  margin-right: 100px;
+  color: white;
+  font-size: 1.2rem;
+  &:hover {
+    color: #646cffaa;
   }
 `
 

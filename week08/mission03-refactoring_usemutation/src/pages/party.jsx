@@ -26,6 +26,7 @@ const Party = () => {
 export default Party
 
 const PartyWrapper = styled.div`
+    // height: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -33,7 +34,7 @@ const PartyWrapper = styled.div`
 
 const Banner = styled.div`
     // width: 50%;
-    height: 300px;
+    height: 350px;
 
     display: flex;
     justify-content: center;
@@ -41,22 +42,19 @@ const Banner = styled.div`
 
     margin-bottom: 20px;
 
-    background-color: green;
     font-size: 1.5rem;
     font-weight: bold;
 
     overflow: hidden;
+    object-fit: cover;
     background-image:
         linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
         url(${(props) => `https://image.tmdb.org/t/p/w500${props.backdrop}`});
     background-size: cover;
-    // background-position: center;
+    background-position: center;
     border-radius: 10px;
 `
 
 const MovieParty = styled.div`
-// width: 40%;
     margin-top: 10px;
-    // background-color: pink;
-    // height: 300px;
 `
