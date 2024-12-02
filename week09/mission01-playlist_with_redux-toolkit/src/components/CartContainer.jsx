@@ -73,7 +73,19 @@ const CartWrapper = styled.section`
     }
 
     .clear-btn {
-        width: fit-content;
+        width: 170px;
+        height: 50px;
         margin-bottom: 20px;
+
+        font-size: 1rem;
+        background-color: white;
+        border: 1px solid red;
+        border-radius: 10px;
+        color: red;
+
+        &:hover {
+            background-color: #EAC8C9;
+            font-weight: bold;
+        }
     }
 `
