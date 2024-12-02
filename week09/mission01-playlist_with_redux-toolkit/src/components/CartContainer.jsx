@@ -74,5 +74,6 @@ const CartWrapper = styled.section`
 
     .clear-btn {
         width: fit-content;
+        margin-bottom: 20px;
     }
 `
