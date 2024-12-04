@@ -9,7 +9,9 @@ import useStore from "../store/useStore"; // Zustand 사용
 
 const ModalButton = () => {
     // const dispatch = useDispatch();
-    const { clearCart, closeModal } = useStore();
+    // const { clearCart, closeModal } = useStore();
+    const { clearCart } = useCartStore();
+    const { closeModal } = useModalStore();
 
     return (
         <ModalBtnWrapper className="btn-container">

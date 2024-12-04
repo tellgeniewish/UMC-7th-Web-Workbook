@@ -9,7 +9,8 @@ import useStore from "../store/useStore"; // Zustand 사용
 
 const CartItem = ({id, title, singer, price, img, amount}) => {
     // const dispatch = useDispatch();
-    const { increase, decrease, removeItem } = useStore();
+    // const { increase, decrease, removeItem } = useStore();
+    const { increase, decrease, removeItem } = useCartStore();
 
     return (
         <CartWrapper className="cart-item">

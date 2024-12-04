@@ -8,7 +8,8 @@ import useStore from "../store/useStore"; // Zustand 사용
 
 const Navbar = () => {
     // const { amount } = useSelector((state) => state.cart);
-    const { amount } = useStore();
+    // const { amount } = useStore();
+    const { amount } = useCartStore();
 
     return (
         <NavWrapper>

@@ -12,7 +12,9 @@ import useStore from "../store/useStore"; // Zustand 사용
 const CartContainer = () => {
     // const { cartItems, total, amount } = useSelector((store) => store.cart);
     // const dispatch = useDispatch();
-    const { cartItems, total, openModal } = useStore();
+    // const { cartItems, total, openModal } = useStore();
+    const { cartItems, total } = useCartStore();
+    const { openModal } = useModalStore();
 
     return (
         <CartWrapper className="cart">

@@ -7,13 +7,17 @@ import { calculateTotals } from './features/cart/cartSlice';
 import styled from 'styled-components';
 import ModalPortal from './components/ModalPortal';
 import Modal from './components/Modal';
-import useStore from './store/useStore'; // Zustand 사용
+import useCartStore from './store/cartStore'; // Zustand 사용
+import useModalStore from './store/modalStore'; // Zustand 사용
+import useStore from "./store/useStore"; // Zustand 사용
 
 function App() {
   // const dispatch = useDispatch();
   // const { cartItems } = useSelector((store) => store.cart);
   // const { isOpen } = useSelector((store) => store.modal)
-  const { cartItems, isOpen, calculateTotals } = useStore();
+  // const { cartItems, isOpen, calculateTotals } = useStore();
+  const { cartItems, calculateTotals } = useCartStore();
+  const { isOpen } = useModalStore();
 
   useEffect(() => {
     //dispatch(calculateTotals())
