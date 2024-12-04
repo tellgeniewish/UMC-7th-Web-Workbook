@@ -7,7 +7,7 @@ import { calculateTotals } from './features/cart/cartSlice';
 import styled from 'styled-components';
 import ModalPortal from './components/ModalPortal';
 import Modal from './components/Modal';
-import useStore from './store/useStore';
+import useStore from './store/useStore'; // Zustand 사용
 
 function App() {
   // const dispatch = useDispatch();
