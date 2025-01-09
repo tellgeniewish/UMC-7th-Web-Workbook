@@ -1,0 +1,1 @@
+const str2:string = 123;

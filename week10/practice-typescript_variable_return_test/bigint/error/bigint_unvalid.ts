@@ -1,0 +1,1 @@
+const bigNum: bigint = 1000000000;

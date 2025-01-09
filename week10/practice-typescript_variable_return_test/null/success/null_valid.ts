@@ -1,0 +1,1 @@
+const isNull: null = null;

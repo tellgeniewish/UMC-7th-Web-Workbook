@@ -1,0 +1,1 @@
+const str1:string = 'genie';

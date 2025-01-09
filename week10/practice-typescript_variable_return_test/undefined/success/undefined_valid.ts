@@ -1,0 +1,1 @@
+const isUndefined: undefined = undefined;

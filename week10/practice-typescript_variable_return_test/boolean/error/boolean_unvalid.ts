@@ -1,0 +1,1 @@
+const isFalse: boolean = 1;
