@@ -1,7 +1,22 @@
-// src/components/ShowOneMovie.jsx
+// src/components/ShowOneMovie.tsx
+import React from "react";
 import styled from "styled-components";
 
-const ShowOneMovie = ({ movie, imageBaseUrl="https://image.tmdb.org/t/p/", posterSize="w500" }) => {
+interface MovieType {
+    poster_path: string;
+    original_title: string;
+    title: string;
+    release_date: string;
+}
+
+interface ShowOneMovieProps {
+    movie: MovieType;
+    imageBaseUrl?: string;
+    posterSize?: string;
+}
+
+// const ShowOneMovie = ({ movie, imageBaseUrl="https://image.tmdb.org/t/p/", posterSize="w500" }) => {
+const ShowOneMovie: React.FC<ShowOneMovieProps> = ({ movie, imageBaseUrl = "https://image.tmdb.org/t/p/", posterSize = "w500" }) => {
     return (
         <MovieStyle>
             <img 
