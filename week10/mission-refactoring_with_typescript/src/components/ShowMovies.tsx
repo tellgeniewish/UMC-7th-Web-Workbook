@@ -1,9 +1,23 @@
-// src/components/ShowMovies.jsx
+// src/components/ShowMovies.tsx
+import React from "react";
 import styled from "styled-components";
 import OneMovie from './ShowOneMovie';
 import { Link } from 'react-router-dom';
 
-const ShowMovies = ({movies}) => {
+interface Movie {
+    id: number;
+    poster_path: string;
+    title: string;
+    original_title: string;
+    release_date: string;
+}
+
+interface ShowMoviesProps {
+    movies: Movie[]; // movies는 Movie 객체 배열
+}
+
+// const ShowMovies = ({movies}) => {
+const ShowMovies: React.FC<ShowMoviesProps> = ({ movies }) => {
     const imageBaseUrl = "https://image.tmdb.org/t/p/";
     const posterSize = "w500";
     return (
