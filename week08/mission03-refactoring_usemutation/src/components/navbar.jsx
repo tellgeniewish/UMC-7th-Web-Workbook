@@ -97,7 +97,7 @@ const NavRight = styled.div`
 const NavSign = styled.button`
   background-color: deeppink;
   width: fit-content;
-  // margin-left: 20px;
+  margin-left: 20px;
   margin-right: 20px;
 `
 
