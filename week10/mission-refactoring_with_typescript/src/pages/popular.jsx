@@ -5,7 +5,7 @@ import ShowMovies from "../components/ShowMovies";
 // import {axiosInstance} from "../apis/axios-instance";
 // import useCustomFetch from "../hooks/useCustomFetch";
 // import { useQuery } from "@tanstack/react-query";
-import SearchMovieList from '../Movie/search-movie-list';
+// import SearchMovieList from '../Movie/search-movie-list';
 // import {useGetMovies} from '../hooks/queries/useGetMovies'
 import * as S from '../pages/search/search.style'
 import CardListSkeleton from "../components/Skeleton/card-list-skeleton"
