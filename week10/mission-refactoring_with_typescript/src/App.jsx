@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // 1. 만든 페이지들을 import
 import HomePage from "./pages/home.jsx";
-import NotFound from "./pages/not-found.jsx";
+import NotFound from "./pages/not-found";
 
 import Login from "./pages/login.jsx";
 import SignUp from './pages/signup.jsx';
