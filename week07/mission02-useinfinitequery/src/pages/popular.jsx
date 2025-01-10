@@ -88,7 +88,6 @@ const PopularPage = () => {
                 {isFetching && <ClipLoader color={'deeppink'}/>}
             </div>
             {/* <ShowMovies movies={movies?.results}/> */}
-            <SearchMovieList/>
         </>
         
     );
