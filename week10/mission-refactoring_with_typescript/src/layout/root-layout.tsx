@@ -1,10 +1,12 @@
-// src/layout/root-layout.jsx
+// src/layout/root-layout.tsx
+import React from "react";
 import {Outlet} from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "../components/navbar";
 import SideBar from "../components/sidebar";
 
-const RootLayout = () => {
+// const RootLayout = () => {
+const RootLayout: React.FC = () => {
     return (
         <RootLayoutWrapper>
             <Navbar/>
