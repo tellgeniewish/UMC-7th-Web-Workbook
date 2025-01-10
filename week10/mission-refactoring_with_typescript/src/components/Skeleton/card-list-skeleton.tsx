@@ -1,7 +1,14 @@
-// src/components/Skeleton/card-list-skeleton.jsx
+// src/components/Skeleton/card-list-skeleton.tsx
+import React from 'react';
 import CardSkeleton from './card-skeleton'
 
-const CardListSkeleton = ({number}) => {
+// Props 타입 정의
+interface CardListSkeletonProps {
+    number: number;
+}
+
+// const CardListSkeleton = ({number}) => {
+const CardListSkeleton: React.FC<CardListSkeletonProps> = ({ number }) => {
     return (
         <div style={{
             display: 'flex',
