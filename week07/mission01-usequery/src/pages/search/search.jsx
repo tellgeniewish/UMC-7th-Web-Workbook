@@ -63,7 +63,7 @@ const SearchPage = () => {
                 //<ShowMovies movies={movies?.results}/>
             </S.MovieGridContainer> */}
             {/* <SearchMovieList searchValue={searchValue}/> */}
-            {/* <SearchMovieList/> */}
+            <SearchMovieList/>
         </>
     );
 };
