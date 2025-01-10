@@ -1,4 +1,5 @@
 // src/pages/movies.jsx
+import React from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import nowPlayingImage from '../image/now-playing.png';
@@ -6,7 +7,8 @@ import popularImage from '../image/popular.png';
 import topRatedImage from '../image/top-rated.png';
 import upComingImage from '../image/up-coming.png';
 
-const MoviesPage = () => {
+// const MoviesPage = () => {
+const MoviesPage: React.FC = () => {
     return (
         <>
             <h2>카테고리</h2>
