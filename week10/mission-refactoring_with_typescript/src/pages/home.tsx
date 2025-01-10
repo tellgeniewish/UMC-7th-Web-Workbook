@@ -1,4 +1,4 @@
-// src/pages/home.jsx
+// src/pages/home.tsx
 import React from 'react';
 import {MOVIES} from '../mocks/movies';
 import ShowMovies from "../components/ShowMovies";
