@@ -10,7 +10,8 @@ interface AuthProviderProps {
 
 interface User {
   // 사용자 데이터의 타입을 정의
-  [key: string]: any; // 임시로 모든 속성을 허용
+  email: string;  // Navbar에서 사용하는 email 필드를 명시적으로 정의
+  [key: string]: any; // 다른 추가 필드들을 위한 인덱스 시그니처, 임시로 모든 속성을 허용
 }
 
 interface AuthContextType {

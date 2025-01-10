@@ -1,7 +1,7 @@
 // src/layout/root-layout.jsx
 import {Outlet} from "react-router-dom";
 import styled from "styled-components";
-import Navbar from "../components/navbar.jsx";
+import Navbar from "../components/navbar";
 import SideBar from "../components/sidebar";
 
 const RootLayout = () => {

@@ -1,13 +1,24 @@
-// src/components/navbar.jsx
+// src/components/navbar.tsx
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
+interface User {
+  email: string;
+}
+
+interface AuthContextType {
+  user: User | null;
+  handleLogout: () => void;
+}
+
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
-
+  // const { user, handleLogout } = useContext(AuthContext) as AuthContextType;;
+  
   console.log("user=", user);
   return (
     <NavBarContainer>
