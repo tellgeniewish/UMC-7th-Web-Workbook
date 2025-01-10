@@ -1,10 +1,12 @@
-// src/components/sidebar.jsx
+// src/components/sidebar.tsx
+import React from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import { FaSearch } from "react-icons/fa";
 import { MdMovie } from "react-icons/md";
 
-const Sidebar = () => {
+// const Sidebar = () => {
+const Sidebar: React.FC = () => {
     return (
         <SidebarContainer>
             <DivSearch>
