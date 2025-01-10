@@ -45,7 +45,6 @@ const UpComingPage = () => {
     return (
         <>
             <ShowMovies movies={movies?.results}/>
-            <SearchMovieList/>
         </>
     );
 };

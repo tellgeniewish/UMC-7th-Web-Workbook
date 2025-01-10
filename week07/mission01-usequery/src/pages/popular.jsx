@@ -44,7 +44,6 @@ const PopularPage = () => {
     return (
         <>
             <ShowMovies movies={movies?.results}/>
-            <SearchMovieList/>
         </>
         
     );

@@ -44,7 +44,6 @@ const TopRankPage = () => {
     return (
         <>
             <ShowMovies movies={movies?.results}/>
-            <SearchMovieList/>
         </>
     );
 };

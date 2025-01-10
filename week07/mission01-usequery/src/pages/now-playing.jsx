@@ -52,7 +52,6 @@ const NowPlayingPage = () => {
     return (
         <>
             <ShowMovies movies={movies?.results}/>
-            <SearchMovieList/>
         </>
     );
 };
