@@ -89,7 +89,6 @@ const TopRankPage = () => {
                 {/* {isFetching && <ClipLoader color={'deeppink'}/>} */}
             {/* </div> */}
             <ShowMovies movies={movies?.results}/>
-            <SearchMovieList/>
             <PaginationContainer>
                 <PageBtn onClick={PrevPage} disabled={currentPage === 1}>이전</PageBtn>
                 <CurrentPage>{currentPage}페이지</CurrentPage>
