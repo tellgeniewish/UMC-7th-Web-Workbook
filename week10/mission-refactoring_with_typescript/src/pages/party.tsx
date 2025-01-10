@@ -1,12 +1,27 @@
 // src/pages/party.jsx
-// import React from 'react'
+import React from 'react'
 import styled from "styled-components";
 import {MOVIES} from '../mocks/movies';
 
-const Party = () => {
+interface Movie {
+    title: string;
+    backdrop_path: string;
+    vote_average: number;
+    vote_count: number;
+    release_date: string;
+    tagline?: string;
+    overview: string;
+}
+
+interface BannerProps {
+    backdrop: string;
+}
+
+// const Party = () => {
+const Party: React.FC = () => {
     // const movie = MOVIES.results.find(movie => movie.title === "메가로돈 2");
     const randomIndex = Math.floor(Math.random() * MOVIES.results.length);
-    const movie = MOVIES.results[randomIndex];
+    const movie: Movie = MOVIES.results[randomIndex];
 
   return (
     <PartyWrapper>
@@ -32,7 +47,7 @@ const PartyWrapper = styled.div`
     padding: 20px;
 `
 
-const Banner = styled.div`
+const Banner = styled.div<BannerProps>`
     // width: 50%;
     height: 350px;
 
