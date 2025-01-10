@@ -20,7 +20,7 @@ import UpComing from './pages/up-coming';
 
 import MovieDetails from "./movies/MovieDetail.jsx";
 
-import RootLayout from "./layout/root-layout.jsx";
+import RootLayout from "./layout/root-layout";
 
 import Party from "./pages/party.jsx"
 import Subscribe from "./pages/subscribe.jsx";

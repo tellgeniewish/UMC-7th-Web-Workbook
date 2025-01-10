@@ -8,7 +8,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 // import useCustomFetch from "../../hooks/useCustomFetch";
 // import OneMovie from '../../components/ShowOneMovie';
 // import { Link } from 'react-router-dom';
-// import SearchMovieList from '../../Movie/search-movie-list';
+import SearchMovieList from '../../Movie/search-movie-list';
 
 const SearchPage = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -65,7 +65,7 @@ const SearchPage = () => {
                 //<ShowMovies movies={movies?.results}/>
             </S.MovieGridContainer> */}
             {/* <SearchMovieList searchValue={searchValue}/> */}
-            {/* <SearchMovieList/> */}
+            <SearchMovieList/>
         </>
     );
 };

@@ -30,7 +30,7 @@ const MovieDetails = () => {
     //     cacheTime: 10000,
     //     staleTime: 1000 * 10,
     // })
-    const { data: movie, isLoading, isError } = useQuery({
+    const { data: movie, isLoading: isMovieLoading, isError: isMovieError } = useQuery({
         queryFn: () => fetchMovieDetails(movieId),
         queryKey: ['movieDetails', movieId],
         cacheTime: 10000,
@@ -39,7 +39,7 @@ const MovieDetails = () => {
     // console.log("movie=", movie);
 
     //const {data: credits} = useCustomFetch(`/movie/${movieId}/credits`);
-    const { data: credits } = useQuery({
+    const { data: credits, isLoading: isCreditsLoading } = useQuery({
         queryFn: () => fetchMovieCredits(movieId),
         queryKey: ['movieCredits', movieId],
         cacheTime: 10000,
@@ -47,10 +47,10 @@ const MovieDetails = () => {
     });
     // console.log("credits=", credits);
 
-    if (isLoading) {
+    if (isMovieLoading || isCreditsLoading) {
         return <div><h1 style={{color:'white'}}>MovieDetails 로딩 중입니다...</h1></div>
     }
-    if (isError) {
+    if (isMovieError) {
         return <div><h1 style={{color:'white'}}>MovieDetails 에러 발생</h1></div>
     }
 
