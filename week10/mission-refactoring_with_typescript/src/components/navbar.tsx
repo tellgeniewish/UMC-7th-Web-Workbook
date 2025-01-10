@@ -6,18 +6,9 @@ import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
-interface User {
-  email: string;
-}
-
-interface AuthContextType {
-  user: User | null;
-  handleLogout: () => void;
-}
-
-const Navbar = () => {
+// const Navbar = () => {
+const Navbar: React.FC = () => {
   const { user, handleLogout } = useContext(AuthContext);
-  // const { user, handleLogout } = useContext(AuthContext) as AuthContextType;;
   
   console.log("user=", user);
   return (
