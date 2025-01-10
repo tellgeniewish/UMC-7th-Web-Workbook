@@ -1,4 +1,4 @@
-// src/components/Skeleton/card-skeleton.style.jsx
+// src/components/Skeleton/card-skeleton.style.ts
 import styled, {keyframes} from "styled-components";
 
 const skeleton = keyframes`
@@ -19,7 +19,7 @@ const skeleton = keyframes`
     }
 `
 
-const SkeletonConatiner = styled.div`
+const SkeletonContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -61,4 +61,4 @@ const DescriptBox = styled.div`
     animation: ${skeleton} 3s 1s infinite linear alternate;
 `
 
-export { SkeletonConatiner, CardMain, CardTextWrapper, TitleBox, DescriptBox }
+export { SkeletonContainer, CardMain, CardTextWrapper, TitleBox, DescriptBox }
