@@ -1,11 +1,11 @@
 // src/hooks/queries/useGetInfiniteMovies.js
-import React from 'react'
+// import React from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { useGetMovies } from './useGetMovies'
+import { getMovies } from './useGetMovies'
 
 function useGetInfiniteMovies(category) {
   return useInfiniteQuery({
-        queryFn: ({pageParam}) => useGetMovies({category, pageParam}),
+        queryFn: ({pageParam}) => getMovies({category, pageParam}),
         queryKey: ['movies', category],
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages) => {

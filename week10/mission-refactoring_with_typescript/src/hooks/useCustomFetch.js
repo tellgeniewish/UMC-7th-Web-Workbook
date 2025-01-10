@@ -16,6 +16,7 @@ const useCustomFetch = (url) => {
                 const response = await axiosInstance.get(url);
                 setData(response.data);
             } catch (error) {
+                console.error("useCustomFetch error:", error);
                 setIsError(true);
             } finally {
                 setIsLoading(false);

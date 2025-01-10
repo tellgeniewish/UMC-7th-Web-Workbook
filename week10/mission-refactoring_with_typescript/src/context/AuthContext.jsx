@@ -1,7 +1,9 @@
 // src/context/AuthContext.jsx
-import React, { createContext, useState, useEffect } from 'react';
+// import React from 'react';
+import { createContext, useState, useEffect } from 'react';
 import api from '../apis/api';
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import PropTypes from 'prop-types'; // PropTypes를 import
 
 export const AuthContext = createContext();
 
@@ -49,4 +51,9 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+// PropTypes로 children 검증 추가
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired, // children은 반드시 React 노드이어야 함
 };

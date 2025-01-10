@@ -1,18 +1,18 @@
 // src/pages/top-rated.jsx
-import { useEffect, useState } from "react";
-import axios from "axios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 import ShowMovies from "../components/ShowMovies";
-import {axiosInstance} from "../apis/axios-instance";
-import useCustomFetch from "../hooks/useCustomFetch";
-import { useQuery } from "@tanstack/react-query";
+// import {axiosInstance} from "../apis/axios-instance";
+// import useCustomFetch from "../hooks/useCustomFetch";
+// import { useQuery } from "@tanstack/react-query";
 import SearchMovieList from '../Movie/search-movie-list';
-import {useGetMovies} from '../hooks/queries/useGetMovies'
+// import {useGetMovies} from '../hooks/queries/useGetMovies'
 import * as S from '../pages/search/search.style'
 import CardListSkeleton from "../components/Skeleton/card-list-skeleton"
-import { useInView } from "react-intersection-observer";
-import ShowOneMovie from "../components/ShowOneMovie";
-import ClipLoader from "react-spinners/ClipLoader";
-import { useGetInfiniteMovies } from "../hooks/queries/useGetInfiniteMovies";
+// import { useInView } from "react-intersection-observer";
+// import ShowOneMovie from "../components/ShowOneMovie";
+// import ClipLoader from "react-spinners/ClipLoader";
+// import { useGetInfiniteMovies } from "../hooks/queries/useGetInfiniteMovies";
 import useGetPaginatedMovies from "../hooks/queries/useGetPaginatedMovies";
 import styled from "styled-components";
 
@@ -51,9 +51,11 @@ const TopRankPage = () => {
     const {
         currentPage,
         movies,
-        isLoading, isError, isPending, isFetching,
+        // isLoading, 
+        isError, isPending, 
+        // isFetching,
         PrevPage, NextPage,
-        hasPrevPage, hasNextPage
+        // hasPrevPage, hasNextPage
     } = useGetPaginatedMovies({category: 'top_rated'})
     console.log("movies=", movies);
 

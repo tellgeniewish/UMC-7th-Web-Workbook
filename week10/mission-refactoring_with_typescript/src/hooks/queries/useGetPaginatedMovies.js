@@ -1,5 +1,5 @@
 // src/hooks/queries/useGetPaginatedMovies.js
-import React from 'react'
+// import React from 'react'
 import { useState } from 'react';
 import { axiosInstance } from "../../apis/axios-instance";
 import { useQuery } from "@tanstack/react-query";

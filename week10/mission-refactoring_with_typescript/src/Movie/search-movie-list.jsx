@@ -2,13 +2,17 @@
 import OneMovie from '../components/ShowOneMovie';
 import * as S from '../pages/search/search.style'
 import useCustomFetch from "../hooks/useCustomFetch";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import CardSkeleton from "../components/Skeleton/card-skeleton"
+import { useSearchParams, 
+    // useNavigate 
+} from "react-router-dom";
+// import CardSkeleton from "../components/Skeleton/card-skeleton"
 import CardListSkeleton from "../components/Skeleton/card-list-skeleton"
 
 // const SearchMovieList = ({searchValue}) => {
 const SearchMovieList = () => {
-    const [searchParams, setSearchParams] = useSearchParams({
+    const [searchParams, 
+        // setSearchParams
+    ] = useSearchParams({
         mq: ''
     })
     const mq = searchParams.get('mq')

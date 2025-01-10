@@ -1,12 +1,12 @@
 // src/movies/MovieDetail.jsx
 import { useParams } from 'react-router-dom';
-import useCustomFetch from "../hooks/useCustomFetch";
+// import useCustomFetch from "../hooks/useCustomFetch";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import {axiosInstance} from "../apis/axios-instance";
 
 const imageBaseUrl = "https://image.tmdb.org/t/p/";
-const posterSize = "w500";
+// const posterSize = "w500";
 
 const fetchMovieDetails = async (movieId) => {
     const response = await axiosInstance.get(`/movie/${movieId}`);

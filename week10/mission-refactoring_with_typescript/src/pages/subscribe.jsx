@@ -1,5 +1,5 @@
 // src/pages/subscribe.jsx
-import React from 'react'
+// import React from 'react'
 import styled from "styled-components";
 import {MOVIES} from '../mocks/movies';
 import { Link } from 'react-router-dom';

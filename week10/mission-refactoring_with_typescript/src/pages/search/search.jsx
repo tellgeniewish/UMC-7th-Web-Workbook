@@ -1,14 +1,14 @@
 // src/pages/search.jsx
-import styled from "styled-components";
-import {MOVIES} from '../../mocks/movies';
-import ShowMovies from "../../components/ShowMovies";
+// import styled from "styled-components";
+// import {MOVIES} from '../../mocks/movies';
+// import ShowMovies from "../../components/ShowMovies";
 import * as S from './search.style'
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import useCustomFetch from "../../hooks/useCustomFetch";
-import OneMovie from '../../components/ShowOneMovie';
-import { Link } from 'react-router-dom';
-import SearchMovieList from '../../Movie/search-movie-list';
+// import useCustomFetch from "../../hooks/useCustomFetch";
+// import OneMovie from '../../components/ShowOneMovie';
+// import { Link } from 'react-router-dom';
+// import SearchMovieList from '../../Movie/search-movie-list';
 
 const SearchPage = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -19,7 +19,9 @@ const SearchPage = () => {
 
     console.log(searchValue, '검색결과값')
 
-    const [searchParams, setSearchParams] = useSearchParams({
+    const [searchParams, 
+        // setSearchParams
+    ] = useSearchParams({
         mq: ''
     })
     const mq = searchParams.get('mq')

@@ -1,5 +1,5 @@
 // src/pages/party.jsx
-import React from 'react'
+// import React from 'react'
 import styled from "styled-components";
 import {MOVIES} from '../mocks/movies';
 

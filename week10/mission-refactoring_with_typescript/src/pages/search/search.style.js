@@ -1,6 +1,6 @@
 // src/pages/search.style.jsx
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const SearchContainer = styled.div`
     display: flex;
