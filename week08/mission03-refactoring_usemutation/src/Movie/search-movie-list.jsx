@@ -1,4 +1,5 @@
 // src/Movie/search-movie-list.jsx
+import ShowMovies from "../components/ShowMovies";
 import OneMovie from '../components/ShowOneMovie';
 import * as S from '../pages/search/search.style'
 import useCustomFetch from "../hooks/useCustomFetch";
@@ -40,10 +41,10 @@ const SearchMovieList = () => {
 
     return (
         <S.MovieGridContainer>
-            {movies?.results?.map((movie) => (
+            {/* {movies?.results?.map((movie) => (
                 <OneMovie key={movie.id} movie={movie}/>
-            ))}
-            {/* <ShowMovies movies={movies?.results}/> */}
+            ))} */}
+            <ShowMovies movies={movies?.results}/>
         </S.MovieGridContainer>
     );
 };
