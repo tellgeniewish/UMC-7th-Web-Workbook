@@ -1,14 +1,38 @@
-// src/context/AuthContext.jsx
-// import React from 'react';
-import { createContext, useState, useEffect } from 'react';
+// src/context/AuthContext.tsx
+import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import api from '../apis/api';
 // import { useQuery } from "@tanstack/react-query";
-import PropTypes from 'prop-types'; // PropTypes를 import
+// import PropTypes from 'prop-types'; // PropTypes를 import
 
-export const AuthContext = createContext();
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+interface User {
+  // 사용자 데이터의 타입을 정의
+  [key: string]: any; // 임시로 모든 속성을 허용
+}
+
+interface AuthContextType {
+  user: User | null;
+  handleLogin: (userData: User) => void;
+  handleLogout: () => void;
+  fetchUser: () => Promise<void>;
+}
+
+// export const AuthContext = createContext();
+// 초기값을 제공하여 createContext 호출
+export const AuthContext = createContext<AuthContextType>({
+  user: null,
+  handleLogin: () => {},
+  handleLogout: () => {},
+  fetchUser: async () => {},
+});
+
+// export const AuthProvider = ({ children }) => {
+  export const AuthProvider = ({ children }: AuthProviderProps) => {
+  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -54,6 +78,6 @@ export const AuthProvider = ({ children }) => {
 };
 
 // PropTypes로 children 검증 추가
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired, // children은 반드시 React 노드이어야 함
-};
+// AuthProvider.propTypes = {
+//   children: PropTypes.node.isRequired, // children은 반드시 React 노드이어야 함
+// };

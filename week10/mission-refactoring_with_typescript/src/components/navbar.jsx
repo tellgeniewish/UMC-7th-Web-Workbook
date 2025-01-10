@@ -19,7 +19,7 @@ const Navbar = () => {
         <>
           <NavRight>          
             <Subscribe><Link to="/subscribe">구독 중...</Link></Subscribe>
-            <Hello>{user.email ? user.email.split()[0] : '이메일을 다시 확인하세요.'}님 반갑습니다.</Hello>
+            <Hello>{user.email ? `${user.email.split('@')[0]}님 반갑습니다.` : '이메일을 다시 확인하세요.'}</Hello>
             <Logout onClick={handleLogout}>로그아웃</Logout>        
           </NavRight>
         </>
