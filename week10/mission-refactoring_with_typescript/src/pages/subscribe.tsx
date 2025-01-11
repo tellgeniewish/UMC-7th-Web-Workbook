@@ -15,17 +15,17 @@ const Subscribe: React.FC = () => {
     const subscribeMovies: Movie[] = MOVIES.results.slice(0, 10);
 
     return (
-        <SubscribeWrapper>
-          {subscribeMovies.map((movie) => (
-              <MovieCard key={movie.id} to={`/movies/${movie.id}`}>
-              <Poster 
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
-                  alt={movie.title} 
-              />
-              <Title>{movie.title}</Title>
-              </MovieCard>
-          ))}
-        </SubscribeWrapper>
+      <SubscribeWrapper>
+        {subscribeMovies.map((movie) => (
+            <MovieCard key={movie.id} to={`/movies/${movie.id}`}>
+            <Poster 
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
+                alt={movie.title} 
+            />
+            <Title>{movie.title}</Title>
+            </MovieCard>
+        ))}
+      </SubscribeWrapper>
     )
 }
 
