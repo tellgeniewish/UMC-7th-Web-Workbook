@@ -1,11 +1,18 @@
-// src/pages/subscribe.jsx
-// import React from 'react'
+// src/pages/subscribe.tsx
+import React from 'react'
 import styled from "styled-components";
 import {MOVIES} from '../mocks/movies';
 import { Link } from 'react-router-dom';
 
-const Subscribe = () => {
-    const subscribeMovies = MOVIES.results.slice(0, 10);
+interface Movie {
+  id: number;
+  poster_path: string;
+  title: string;
+}
+
+// const Subscribe = () => {
+const Subscribe: React.FC = () => {
+    const subscribeMovies: Movie[] = MOVIES.results.slice(0, 10);
 
     return (
         <SubscribeWrapper>
