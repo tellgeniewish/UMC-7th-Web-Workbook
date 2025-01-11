@@ -5,14 +5,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // 1. 만든 페이지들을 import
-import HomePage from "./pages/home.jsx";
+import HomePage from "./pages/home";
 import NotFound from "./pages/not-found";
 
 import Login from "./pages/login.jsx";
 import SignUp from './pages/signup.jsx';
 
 import Search from './pages/search/search.jsx';
-import Movies from "./pages/movies.jsx";
+import Movies from "./pages/movies";
 
 import NowPlaying from './pages/now-playing';
 import Popular from './pages/popular';
@@ -23,7 +23,7 @@ import MovieDetails from "./movies/MovieDetail.jsx";
 
 import RootLayout from "./layout/root-layout";
 
-import Party from "./pages/party.jsx"
+import Party from "./pages/party"
 import Subscribe from "./pages/subscribe.jsx";
 
 const router = createBrowserRouter([
