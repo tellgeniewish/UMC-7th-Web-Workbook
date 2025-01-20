@@ -1,0 +1,4 @@
+C:/Users/user/Desktop/J/DDWU/24-2/Club/UMC_7th/workbook/backend
+
+Git Bash에서 위의 경로로 이동 후
+node server.js
